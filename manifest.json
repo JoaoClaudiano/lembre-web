@@ -1,0 +1,11 @@
+{
+  "name": "Lembre",
+  "short_name": "Lembre",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fbfbfa",
+  "theme_color": "#4f6bed",
+  "icons": [
+    { "src": "icon.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
