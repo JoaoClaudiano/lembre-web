@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lembre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    :root {
+      --bg: #fbfbfa;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #4f6bed;
+      --border: #e5e7eb;
+      --flow: rgba(0,0,0,0.03);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1116;
+        --card: #161a22;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #7aa2ff;
+        --border: #1f2937;
+        --flow: rgba(255,255,255,0.04);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="flow"></canvas>
+  <main>
+    <h1>Lembre</h1>
+    <p class="subtitle">Um lembrete que não interrompe.</p>
+
+    <div class="card">
+      <label>O que você quer lembrar?</label>
+      <textarea id="text" placeholder="Ex: Pausar e respirar"></textarea>
+
+      <label>Quando?</label>
+      <input type="datetime-local" id="time">
+
+      <button id="create">Criar lembrete</button>
+      <button id="enable">Ativar notificações</button>
+    </div>
+
+    <footer>
+      Sem login • Sem som • Sem coleta de dados
+    </footer>
+  </main>
+
+  <script type="module" src="app.js"></script>
+  <script src="background.js"></script>
+</body>
+</html>
